@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio de Juan Pérez - Desarrollador Web</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header id="navbar-header">
+    <nav id="navbar">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú de navegación">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#welcome-section" class="nav-link">Inicio</a></li>
+        <li><a href="#projects" class="nav-link">Proyectos</a></li>
+        <li><a href="#experience" class="nav-link">Experiencia</a></li>
+        <li><a href="#skills" class="nav-link">Habilidades</a></li>
+        <li><a id="profile-link" href="https://github.com/juanperez" target="_blank" rel="noopener" class="nav-link">Mi GitHub</a></li>
+      </ul>
+     
+    </nav>
+  </header>
+
+  <section id="welcome-section">
+    <h1>¡Hola! Soy Developer</h1>
+    <p>Desarrollador web apasionado por crear soluciones modernas y eficientes.<br>
+    Me especializo en JavaScript, React y Node.js.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Proyectos Destacados</h2>
+    <div class="project-tile">
+      <h2>Gestor de Tareas</h2>
+      <p>Aplicación web para organizar tareas diarias, con autenticación y notificaciones.</p>
+      <a href="https://github.com/juanperez/gestor-tareas" target="_blank" rel="noopener">Ver proyecto</a>
+    </div>
+    <div class="project-tile">
+      <h2>API de Clima</h2>
+      <p>API RESTful que provee información meteorológica en tiempo real.</p>
+      <a href="https://github.com/juanperez/api-clima" target="_blank" rel="noopener">Ver proyecto</a>
+    </div>
+    <div class="project-tile">
+      <h2>Portafolio Personal</h2>
+      <p>Mi sitio web personal, donde muestro mis trabajos y contacto.</p>
+      <a href="https://juanperez.dev" target="_blank" rel="noopener">Ver proyecto</a>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experiencia</h2>
+    <ul>
+      <li>
+        <strong>Desarrollador Frontend</strong> en <em>Tech Solutions</em> (2022 - Actualidad)
+        <br>
+        <span>Desarrollo de interfaces SPA con React y Redux, optimización de rendimiento y accesibilidad.</span>
+      </li>
+      <li>
+        <strong>Desarrollador Full Stack</strong> en <em>Web Creativa</em> (2020 - 2022)
+        <br>
+        <span>Implementación de APIs con Node.js y Express, integración de bases de datos MongoDB y PostgreSQL.</span>
+      </li>
+      <li>
+        <strong>Prácticas de Desarrollo</strong> en <em>StartUp XYZ</em> (2019 - 2020)
+        <br>
+        <span>Colaboración en proyectos ágiles, testing y despliegue en la nube.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Habilidades</h2>
+    <ul>
+      <li>JavaScript (ES6+), TypeScript</li>
+      <li>React, Redux, Next.js</li>
+      <li>Node.js, Express</li>
+      <li>HTML5, CSS3, SASS</li>
+      <li>MongoDB, PostgreSQL</li>
+      <li>Git, GitHub, CI/CD</li>
+      <li>Inglés B2</li>
+    </ul>
+  </section>
+
+  <script>
+    // Funcionalidad del menú hamburguesa
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer click en un enlace
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+      });
+    });
+
+    // Smooth scroll para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
